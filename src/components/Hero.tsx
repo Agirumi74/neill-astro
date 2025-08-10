@@ -13,7 +13,7 @@ const Hero = () => {
               <p className="text-primary font-medium tracking-wide uppercase text-xs sm:text-sm">
                 L'artisane de votre beauté
               </p>
-              <h1 className="font-elegant text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-tight">
+              <h1 className="font-elegant hero-responsive font-bold text-foreground leading-tight">
                 Une Approche
                 <span className="block bg-gradient-luxury bg-clip-text text-transparent">
                   Unique
@@ -39,7 +39,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-luxury text-primary-foreground hover-glow luxury-shadow text-sm sm:text-base"
+                className="btn-gradient hover-glow luxury-shadow text-sm sm:text-base font-medium"
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Découvrir mes services
@@ -47,7 +47,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm sm:text-base"
+                className="border-primary text-primary hover:bg-gradient-luxury hover:text-primary-foreground hover:border-transparent elegant-shadow text-sm sm:text-base font-medium transition-all duration-300"
                 onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Voir la galerie

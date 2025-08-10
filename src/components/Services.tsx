@@ -59,14 +59,14 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group bg-gradient-card border-border/50 hover-glow overflow-hidden">
+            <Card key={index} className="card-elegant group overflow-hidden">
               <CardContent className="p-0">
                 {service.image && (
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={service.image.src}
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 img-dark-overlay"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                   </div>
@@ -100,7 +100,7 @@ const Services = () => {
                     <Button 
                       variant="outline" 
                       size="sm" 
-                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                      className="w-full border-primary text-primary hover:bg-gradient-luxury hover:text-primary-foreground hover:border-transparent elegant-shadow transition-all duration-300"
                       onClick={() => {
                         const routes = [
                           '/services/maquillage-professionnel',

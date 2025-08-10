@@ -32,13 +32,13 @@ const FloatingCTA = () => {
   return (
     <div className="fixed bottom-6 right-6 z-40 animate-fade-in">
       <div className={`
-        bg-gradient-luxury text-white rounded-2xl shadow-2xl transition-all duration-500 ease-out
-        ${isExpanded ? 'w-80 p-6' : 'w-16 h-16 p-0 cursor-pointer hover-glow'}
+        bg-gradient-to-r from-amber-400 to-yellow-500 text-white rounded-2xl shadow-2xl transition-all duration-500 ease-out
+        ${isExpanded ? 'w-80 p-6' : 'w-16 h-16 p-0 cursor-pointer hover:shadow-lg hover:shadow-primary/40'}
       `}>
         {!isExpanded ? (
           <button
             onClick={() => setIsExpanded(true)}
-            className="w-full h-full flex items-center justify-center animate-glow"
+            className="w-full h-full flex items-center justify-center animate-pulse"
           >
             <Calendar className="w-6 h-6" />
           </button>

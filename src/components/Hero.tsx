@@ -13,9 +13,9 @@ const Hero = () => {
               <p className="text-primary font-medium tracking-wide uppercase text-xs sm:text-sm">
                 L'artisane de votre beauté
               </p>
-              <h1 className="font-elegant text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-tight">
+              <h1 className="font-elegant hero-responsive font-bold text-foreground leading-tight">
                 Une Approche
-                <span className="block bg-gradient-luxury bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
                   Unique
                 </span>
               </h1>
@@ -39,7 +39,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-luxury text-primary-foreground hover-glow luxury-shadow text-sm sm:text-base"
+                className="btn-gradient hover-glow luxury-shadow text-sm sm:text-base font-medium"
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Découvrir mes services
@@ -47,7 +47,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm sm:text-base"
+                className="border-primary text-primary hover:bg-gradient-to-r hover:from-amber-400 hover:to-yellow-500 hover:text-white hover:border-transparent elegant-shadow text-sm sm:text-base font-medium transition-all duration-300"
                 onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Voir la galerie
@@ -56,15 +56,15 @@ const Hero = () => {
 
             {/* Decorative Line */}
             <div className="flex items-center space-x-4 pt-8">
-              <div className="h-px bg-gradient-luxury w-16"></div>
+              <div className="h-px bg-gradient-to-r from-amber-400 to-yellow-500 w-16"></div>
               <Star className="w-4 h-4 text-primary" />
-              <div className="h-px bg-gradient-luxury w-16"></div>
+              <div className="h-px bg-gradient-to-r from-yellow-500 to-amber-400 w-16"></div>
             </div>
           </div>
 
           {/* Image */}
           <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl luxury-shadow animate-float">
+            <div className="relative overflow-hidden rounded-3xl luxury-shadow hover:scale-105 transition-transform duration-300">
               <img
                 src={heroImage.src}
                 alt="Artisan Beauty - Maquillage professionnel"
@@ -74,7 +74,7 @@ const Hero = () => {
             </div>
             
             {/* Floating Badge */}
-            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white/90 backdrop-blur-md rounded-full p-4 sm:p-6 card-shadow animate-glow">
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white/90 backdrop-blur-md rounded-full p-4 sm:p-6 elegant-shadow animate-bounce">
               <div className="text-center">
                 <p className="font-elegant text-xl sm:text-2xl font-bold text-primary">15+</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">Années d'expérience</p>

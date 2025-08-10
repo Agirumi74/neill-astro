@@ -41,7 +41,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-hero">
+    <section id="services" className="py-20 bg-gradient-to-br from-background to-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-primary font-medium tracking-wide uppercase text-sm mb-4">
@@ -59,14 +59,14 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group bg-gradient-card border-border/50 hover-glow overflow-hidden">
+            <Card key={index} className="card-elegant group overflow-hidden">
               <CardContent className="p-0">
                 {service.image && (
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={service.image.src}
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 img-dark-overlay"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                   </div>
@@ -74,7 +74,7 @@ const Services = () => {
                 
                 <div className="p-6 space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-gradient-luxury rounded-lg text-white">
+                    <div className="p-2 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-lg text-white">
                       {service.icon}
                     </div>
                     <h3 className="font-elegant text-xl font-semibold text-foreground">
@@ -100,7 +100,7 @@ const Services = () => {
                     <Button 
                       variant="outline" 
                       size="sm" 
-                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                      className="w-full border-primary text-primary hover:bg-gradient-to-r hover:from-amber-400 hover:to-yellow-500 hover:text-white hover:border-transparent elegant-shadow transition-all duration-300"
                       onClick={() => {
                         const routes = [
                           '/services/maquillage-professionnel',

@@ -10,7 +10,7 @@ const Process = () => {
       subtitle: "Découverte & Analyse",
       description: "Nous échangeons sur vos attentes, j'analyse votre morphologie et votre style pour créer un look parfaitement adapté à votre personnalité.",
       duration: "30 min",
-      color: "from-primary to-primary-glow"
+      color: "from-amber-400 to-yellow-500"
     },
     {
       number: "02", 
@@ -19,7 +19,7 @@ const Process = () => {
       subtitle: "Sélection & Préparation",
       description: "Je sélectionne les produits et teintes parfaites pour votre carnation. Préparation minutieuse de votre peau pour un rendu optimal.",
       duration: "15 min",
-      color: "from-accent to-primary"
+      color: "from-orange-400 to-amber-500"
     },
     {
       number: "03",
@@ -28,7 +28,7 @@ const Process = () => {
       subtitle: "Création Artistique",
       description: "Application experte du maquillage avec des techniques professionnelles. Chaque geste est pensé pour sublimer votre beauté naturelle.",
       duration: "45-90 min",
-      color: "from-primary-glow to-accent"
+      color: "from-yellow-500 to-orange-400"
     },
     {
       number: "04",
@@ -37,7 +37,7 @@ const Process = () => {
       subtitle: "Retouches & Conseils",
       description: "Dernières retouches pour un résultat parfait. Je vous donne mes conseils pour maintenir votre look et réaliser des retouches si besoin.",
       duration: "15 min",
-      color: "from-accent to-primary"
+      color: "from-orange-400 to-amber-500"
     }
   ];
 
@@ -68,7 +68,7 @@ const Process = () => {
           </p>
           <h2 className="font-elegant text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Comment Je Révèle
-            <span className="block bg-gradient-luxury bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
               Votre Beauté
             </span>
           </h2>
@@ -83,8 +83,7 @@ const Process = () => {
           {steps.map((step, index) => (
             <Card 
               key={index} 
-              className="group bg-gradient-card border-border/50 hover-glow overflow-hidden animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="group bg-gradient-to-br from-card to-muted border-border/50 hover:shadow-lg hover:shadow-primary/20 overflow-hidden"
             >
               <CardContent className="p-8">
                 <div className="flex items-start space-x-6">
@@ -130,7 +129,7 @@ const Process = () => {
         </div>
 
         {/* Values */}
-        <div className="bg-gradient-hero rounded-3xl p-12">
+        <div className="bg-gradient-to-br from-background to-muted rounded-3xl p-12">
           <div className="text-center mb-12">
             <h3 className="font-elegant text-3xl font-bold text-foreground mb-4">
               Mes Valeurs
@@ -145,12 +144,11 @@ const Process = () => {
             {values.map((value, index) => (
               <Card 
                 key={index} 
-                className="bg-background/50 backdrop-blur-sm border-border/30 hover-glow text-center animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-background/50 backdrop-blur-sm border-border/30 hover:shadow-lg hover:shadow-primary/20 text-center transition-all duration-300"
               >
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-gradient-luxury rounded-full text-white">
+                    <div className="p-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-white">
                       {value.icon}
                     </div>
                   </div>

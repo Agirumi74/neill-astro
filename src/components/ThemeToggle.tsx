@@ -29,7 +29,7 @@ export default function ThemeToggle() {
       style={{
         position: "fixed",
         top: 16,
-        right: 16,
+        right: 80, // Move further right to avoid mobile menu button
         zIndex: 9999,
         padding: 8,
         borderRadius: 8,

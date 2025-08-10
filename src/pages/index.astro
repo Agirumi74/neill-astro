@@ -1,16 +1,72 @@
 ---
-
+import Header from "@components/Header";
+import Hero from "@components/Hero";
+import Services from "@components/Services";
+import About from "@components/About";
+import Process from "@components/Process";
+import Gallery from "@components/Gallery";
+import Formations from "@components/Formations";
+import Team from "@components/Team";
+import Testimonials from "@components/Testimonials";
+import FAQ from "@components/FAQ";
+import Newsletter from "@components/Newsletter";
+import Contact from "@components/Contact";
+import Footer from "@components/Footer";
+import FloatingCTA from "@components/FloatingCTA";
+import ScrollToTop from "@components/ScrollToTop";
+import AnimatedSection from "@components/AnimatedSection";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home" description="Welcome to our homepage">
+  
+<div class="min-h-screen">
+  <Header />
+
+  <Hero client:load />
+
+  <AnimatedSection animation="fade-in" client:visible>
+    <Services />
+  </AnimatedSection>
+
+  <AnimatedSection animation="slide-up" delay={100} client:visible>
+    <About />
+  </AnimatedSection>
+
+  <AnimatedSection animation="fade-in" delay={200} client:visible>
+    <Process />
+  </AnimatedSection>
+
+  <AnimatedSection animation="slide-left" delay={100} client:visible>
+    <Gallery />
+  </AnimatedSection>
+
+  <AnimatedSection animation="scale-in" client:visible>
+    <Formations />
+  </AnimatedSection>
+
+  <AnimatedSection animation="slide-right" delay={150} client:visible>
+    <Team />
+  </AnimatedSection>
+
+  <AnimatedSection animation="fade-in" delay={100} client:visible>
+    <Testimonials />
+  </AnimatedSection>
+
+  <AnimatedSection animation="slide-up" delay={200} client:visible>
+    <FAQ />
+  </AnimatedSection>
+
+  <AnimatedSection animation="scale-in" delay={100} client:visible>
+    <Newsletter />
+  </AnimatedSection>
+
+  <AnimatedSection animation="fade-in" client:visible>
+    <Contact />
+  </AnimatedSection>
+
+  <FloatingCTA client:load />
+  <ScrollToTop client:load />
+</div>
+
+</BaseLayout>

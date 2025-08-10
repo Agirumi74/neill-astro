@@ -2,81 +2,25 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Clock, Users, Award, BookOpen, CheckCircle, ArrowRight } from "lucide-react";
 
-const Formations = () => {
-  const formations = [
-    {
-      id: 1,
-      title: "Initiation au Maquillage",
-      subtitle: "Les Fondamentaux",
-      duration: "3 heures",
-      participants: "1-3 personnes",
-      level: "Débutant",
-      price: "120€",
-      description: "Découvrez les bases du maquillage et apprenez à sublimer votre beauté naturelle au quotidien.",
-      program: [
-        "Préparation de la peau",
-        "Techniques de base du teint",
-        "Mise en valeur du regard",
-        "Harmonisation des couleurs",
-        "Kit de démarrage offert"
-      ],
-      badge: "Populaire"
-    },
-    {
-      id: 2,
-      title: "Perfectionnement",
-      subtitle: "Techniques Avancées",
-      duration: "6 heures",
-      participants: "1-2 personnes",
-      level: "Intermédiaire",
-      price: "250€",
-      description: "Perfectionnez vos techniques et découvrez les secrets des professionnels pour des looks sophistiqués.",
-      program: [
-        "Contouring et highlighting",
-        "Maquillage des yeux avancé",
-        "Techniques de lèvres",
-        "Looks jour/soir",
-        "Certification incluse"
-      ],
-      badge: "Nouveau"
-    },
-    {
-      id: 3,
-      title: "Formation Professionnelle",
-      subtitle: "Devenir MUA",
-      duration: "30 heures",
-      participants: "1-5 personnes",
-      level: "Professionnel",
-      price: "1200€",
-      description: "Formation complète pour devenir maquilleur(se) professionnel(le) avec certification reconnue.",
-      program: [
-        "Anatomie et morphologie",
-        "Techniques professionnelles",
-        "Maquillage artistique",
-        "Gestion clientèle",
-        "Stage pratique inclus"
-      ],
-      badge: "Certifiante"
-    },
-    {
-      id: 4,
-      title: "Atelier Mariée",
-      subtitle: "Le Jour J",
-      duration: "4 heures",
-      participants: "1-4 personnes",
-      level: "Tous niveaux",
-      price: "180€",
-      description: "Spécialisez-vous dans le maquillage mariée et créez des looks inoubliables pour le plus beau jour.",
-      program: [
-        "Tendances maquillage mariée",
-        "Techniques longue tenue",
-        "Essais et retouches",
-        "Conseils personnalisés",
-        "Photos souvenirs"
-      ],
-      badge: "Spécialisé"
-    }
-  ];
+// Interface pour les props
+interface Formation {
+  id: string;
+  title: string;
+  subtitle: string;
+  duration: string;
+  participants: string;
+  level: string;
+  price: string;
+  description: string;
+  program: string[];
+  badge: string;
+}
+
+interface FormationsProps {
+  formations: Formation[];
+}
+
+const Formations = ({ formations }: FormationsProps) => {
 
   const advantages = [
     {
@@ -144,7 +88,7 @@ const Formations = () => {
                   
                   <div className="p-8 space-y-6">
                     <div>
-                      <h3 className="font-elegant text-2xl font-bold text-foreground mb-2">
+                      key={formation.id}
                         {formation.title}
                       </h3>
                       <p className="text-primary font-medium">{formation.subtitle}</p>

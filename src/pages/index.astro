@@ -16,6 +16,19 @@ import FloatingCTA from "@components/FloatingCTA";
 import ScrollToTop from "@components/ScrollToTop";
 import AnimatedSection from "@components/AnimatedSection";
 import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Importez getCollection pour récupérer les données des collections
+import { getCollection } from 'astro:content';
+
+// Récupérez les données des collections SQLite
+const services = (await getCollection('services')).map(entry => entry.data);
+const teamMembers = (await getCollection('team_members')).map(entry => entry.data);
+const testimonials = (await getCollection('testimonials')).map(entry => entry.data);
+const formations = (await getCollection('formations')).map(entry => entry.data);
+
+// Pour FAQ, récupérez les données groupées
+const faqDataEntry = await getCollection('faqs');
+const faqData = faqDataEntry[0]?.data.faqData || [];
 ---
 
 <BaseLayout title="Home" description="Welcome to our homepage">
@@ -26,7 +39,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   <Hero client:load />
 
   <AnimatedSection animation="fade-in" client:visible>
-    <Services />
+    <Services services={services} client:load />
   </AnimatedSection>
 
   <AnimatedSection animation="slide-up" delay={100} client:visible>
@@ -42,19 +55,19 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   </AnimatedSection>
 
   <AnimatedSection animation="scale-in" client:visible>
-    <Formations />
+    <Formations formations={formations} client:load />
   </AnimatedSection>
 
   <AnimatedSection animation="slide-right" delay={150} client:visible>
-    <Team />
+    <Team teamMembers={teamMembers} client:load />
   </AnimatedSection>
 
   <AnimatedSection animation="fade-in" delay={100} client:visible>
-    <Testimonials />
+    <Testimonials testimonials={testimonials} client:load />
   </AnimatedSection>
 
   <AnimatedSection animation="slide-up" delay={200} client:visible>
-    <FAQ client:load />
+    <FAQ faqData={faqData} client:load />
   </AnimatedSection>
 
   <AnimatedSection animation="scale-in" delay={100} client:visible>

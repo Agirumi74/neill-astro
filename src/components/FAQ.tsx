@@ -2,7 +2,20 @@ import { useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-const FAQ = () => {
+// Interface pour les props
+interface FAQData {
+  category: string;
+  questions: {
+    question: string;
+    answer: string;
+  }[];
+}
+
+interface FAQProps {
+  faqData: FAQData[];
+}
+
+const FAQ = ({ faqData }: FAQProps) => {
   const [openItems, setOpenItems] = useState<number[]>([0]);
 
   const toggleItem = (index: number) => {
@@ -12,77 +25,6 @@ const FAQ = () => {
         : [...prev, index]
     );
   };
-
-  const faqData = [
-    {
-      category: "Services",
-      questions: [
-        {
-          question: "Combien de temps à l'avance dois-je réserver ?",
-          answer: "Pour les mariages, je recommande de réserver 3-6 mois à l'avance. Pour les autres prestations, 2-4 semaines suffisent généralement. Cependant, n'hésitez pas à me contacter même à la dernière minute, je ferai de mon mieux pour vous accommoder."
-        },
-        {
-          question: "Proposez-vous des essais maquillage ?",
-          answer: "Absolument ! Je propose systématiquement un essai maquillage pour les mariées, inclus dans la prestation. Pour les autres événements importants, l'essai peut être ajouté moyennant supplément."
-        },
-        {
-          question: "Quels produits utilisez-vous ?",
-          answer: "J'utilise exclusivement des produits haut de gamme : MAC, Urban Decay, Charlotte Tilbury, Dior, et des marques professionnelles hypoallergéniques. Tous mes produits sont testés et approuvés pour leur tenue longue durée."
-        }
-      ]
-    },
-    {
-      category: "Formations",
-      questions: [
-        {
-          question: "Faut-il avoir des prérequis pour les formations ?",
-          answer: "Mes formations s'adaptent à tous les niveaux. Pour l'initiation, aucun prérequis n'est nécessaire. Pour les formations avancées, une base en maquillage est recommandée mais pas obligatoire."
-        },
-        {
-          question: "Les formations sont-elles certifiantes ?",
-          answer: "Oui, toutes mes formations donnent lieu à une certification Artisan Beauty. La formation professionnelle de 30h délivre une certification reconnue dans le milieu professionnel."
-        },
-        {
-          question: "Le matériel est-il fourni pendant les formations ?",
-          answer: "Tout le matériel professionnel est fourni pendant les formations. Pour l'initiation, vous repartez avec un kit de démarrage. Pour les formations avancées, vous bénéficiez d'un kit professionnel complet."
-        }
-      ]
-    },
-    {
-      category: "Tarifs & Réservation",
-      questions: [
-        {
-          question: "Comment se déroule la réservation ?",
-          answer: "Contactez-moi via le formulaire, par téléphone ou email. Nous discutons de vos besoins, je vous propose un devis personnalisé, puis nous fixons un rendez-vous. Un acompte de 30% confirme la réservation."
-        },
-        {
-          question: "Quels sont les moyens de paiement acceptés ?",
-          answer: "J'accepte les paiements par espèces, chèque, virement bancaire et carte bancaire. Le solde est réglé le jour de la prestation."
-        },
-        {
-          question: "Que comprennent vos prestations ?",
-          answer: "Mes prestations incluent la consultation, la préparation de peau, le maquillage complet, les retouches si nécessaire, et des conseils personnalisés. Pour les mariées, je reste disponible pour les retouches le jour J."
-        }
-      ]
-    },
-    {
-      category: "Pratique",
-      questions: [
-        {
-          question: "Vous déplacez-vous à domicile ?",
-          answer: "Oui, je me déplace à domicile dans un rayon de 50km autour de Paris. Des frais de déplacement peuvent s'appliquer selon la distance. Pour les mariages, le déplacement est souvent inclus."
-        },
-        {
-          question: "Que se passe-t-il en cas d'allergie ?",
-          answer: "Je réalise systématiquement un test de tolérance lors du premier contact. J'utilise des produits hypoallergéniques et peux adapter ma sélection selon vos sensibilités."
-        },
-        {
-          question: "Proposez-vous des forfaits groupe ?",
-          answer: "Oui, je propose des forfaits avantageux pour les groupes (EVJF, événements d'entreprise, etc.). Plus le groupe est important, plus le tarif unitaire est dégressif."
-        }
-      ]
-    }
-  ];
 
   return (
     <section className="py-20">

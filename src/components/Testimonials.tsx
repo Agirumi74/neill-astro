@@ -1,45 +1,22 @@
 import { Card, CardContent } from "./ui/card";
 import { Star, Quote } from "lucide-react";
 
-const Testimonials = () => {
-  const testimonials = [
-    {
-      id: 1,
-      name: "Sophie Laurent",
-      role: "Mariée",
-      image: "/lovable-uploads/451e8faf-a8ac-48e3-ad49-12d88d956273.png",
-      rating: 5,
-      text: "Marie a su créer le look parfait pour mon mariage. Son professionnalisme et sa douceur m'ont mise en confiance immédiatement. Le résultat était au-delà de mes attentes !",
-      service: "Maquillage Mariée"
-    },
-    {
-      id: 2,
-      name: "Camille Dubois",
-      role: "Directrice Marketing",
-      image: "/lovable-uploads/451e8faf-a8ac-48e3-ad49-12d88d956273.png",
-      rating: 5,
-      text: "Les formations de Marie sont exceptionnelles. J'ai appris des techniques que j'utilise au quotidien. Son approche pédagogique est remarquable.",
-      service: "Formation Beauté"
-    },
-    {
-      id: 3,
-      name: "Élise Martin",
-      role: "Photographe",
-      image: "/lovable-uploads/451e8faf-a8ac-48e3-ad49-12d88d956273.png",
-      rating: 5,
-      text: "Je travaille régulièrement avec Marie pour mes shootings. Sa créativité et sa maîtrise technique sont impressionnantes. Mes clientes adorent !",
-      service: "Maquillage Artistique"
-    },
-    {
-      id: 4,
-      name: "Anne-Claire Petit",
-      role: "Entrepreneuse",
-      image: "/lovable-uploads/451e8faf-a8ac-48e3-ad49-12d88d956273.png",
-      rating: 5,
-      text: "La consultation VIP a transformé ma routine beauté. Marie a su comprendre mes besoins et m'a donné des conseils précieux pour révéler ma beauté naturelle.",
-      service: "Consultation VIP"
-    }
-  ];
+// Interface pour les props
+interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  rating: number;
+  text: string;
+  service: string;
+}
+
+interface TestimonialsProps {
+  testimonials: Testimonial[];
+}
+
+const Testimonials = ({ testimonials }: TestimonialsProps) => {
 
   return (
     <section className="py-20 bg-gradient-to-br from-background to-muted">
@@ -63,7 +40,7 @@ const Testimonials = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {testimonials.map((testimonial, index) => (
             <Card 
-              key={testimonial.id} 
+              key={testimonial.id}
               className="bg-gradient-to-br from-card to-muted border-border/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
             >
               <CardContent className="p-6 space-y-4">

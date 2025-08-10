@@ -1,44 +1,25 @@
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Palette, GraduationCap, Crown, Sparkles } from "lucide-react";
-import serviceImage1 from "@assets/service-makeup.jpg";
-import serviceImage2 from "@assets/service-formation.jpg";
+import * as LucideIcons from "lucide-react";
 
-const Services = () => {
-  const services = [
-    {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Maquillage Professionnel",
-      description: "Maquillage personnalisé pour tous vos événements spéciaux",
-      image: serviceImage1,
-      features: ["Mariages", "Événements", "Shooting photo", "Soirées"],
-      price: "À partir de 80€"
-    },
-    {
-      icon: <GraduationCap className="w-8 h-8" />,
-      title: "Formations Beauté",
-      description: "Cours privés et ateliers pour maîtriser l'art du maquillage",
-      image: serviceImage2,
-      features: ["Cours individuels", "Ateliers groupe", "Techniques avancées", "Certification"],
-      price: "À partir de 120€"
-    },
-    {
-      icon: <Crown className="w-8 h-8" />,
-      title: "Consultations VIP",
-      description: "Service premium avec analyse personnalisée complète",
-      image: serviceImage2,
-      features: ["Analyse morphologique", "Sélection produits", "Routine beauté", "Suivi personnalisé"],
-      price: "À partir de 200€"
-    },
-    {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: "Relooking Complet",
-      description: "Transformation complète pour révéler votre potentiel",
-      image: serviceImage1,
-      features: ["Conseil style", "Maquillage", "Coiffure", "Shooting photo"],
-      price: "À partir de 350€"
-    }
-  ];
+// Interface pour les props
+interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
+  price: string;
+  icon: keyof typeof LucideIcons;
+  image: string | null;
+  features: string[];
+}
+
+interface ServicesProps {
+  services: ServiceItem[];
+}
+
+const Services = ({ services }: ServicesProps) => {
 
   return (
     <section id="services" className="py-20 bg-gradient-to-br from-background to-muted">
@@ -58,13 +39,15 @@ const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="card-elegant group overflow-hidden">
+          {services.map((service, index) => {
+            const IconComponent = LucideIcons[service.icon] as React.ElementType;
+            return (
+            <Card key={service.id} className="card-elegant group overflow-hidden">
               <CardContent className="p-0">
                 {service.image && (
                   <div className="relative h-48 overflow-hidden">
                     <img
-                      src={service.image.src}
+                      src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 img-dark-overlay"
                     />
@@ -75,7 +58,7 @@ const Services = () => {
                 <div className="p-6 space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="p-2 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-lg text-white">
-                      {service.icon}
+                      {IconComponent && <IconComponent className="w-8 h-8" />}
                     </div>
                     <h3 className="font-elegant text-xl font-semibold text-foreground">
                       {service.title}
@@ -102,13 +85,7 @@ const Services = () => {
                       size="sm" 
                       className="w-full border-primary text-primary hover:bg-gradient-to-r hover:from-amber-400 hover:to-yellow-500 hover:text-white hover:border-transparent elegant-shadow transition-all duration-300"
                       onClick={() => {
-                        const routes = [
-                          '/services/maquillage-professionnel',
-                          '/services/formations', 
-                          '/services/consultations-vip',
-                          '/services/relooking-complet'
-                        ];
-                        window.location.href = routes[index];
+                        window.location.href = `/services/${service.id}`;
                       }}
                     >
                       En savoir plus
@@ -117,7 +94,8 @@ const Services = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
+          );
+          })}
         </div>
       </div>
     </section>

@@ -1,60 +1,30 @@
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Instagram, Linkedin, Mail, Star, Award } from "lucide-react";
-import marieImage from "@assets/team-marie.jpg";
-import assistantImage from "@assets/team-assistant.jpg";
 
-const Team = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Marie Dubois",
-      role: "Fondatrice & Artiste Maquilleuse",
-      speciality: "Maquillage Mariée & Formations",
-      image: marieImage,
-      experience: "15 ans",
-      description: "Passionnée par l'art du maquillage depuis plus de 15 ans, Marie a formé des centaines de professionnels et sublimé plus de 500 mariées.",
-      certifications: [
-        "CAP Esthétique-Cosmétique",
-        "Formation Internationale MUA",
-        "Spécialisation Maquillage Artistique"
-      ],
-      achievements: [
-        "Prix Excellence Beauté 2023",
-        "Formatrice certifiée",
-        "500+ mariées sublimées"
-      ],
-      social: {
-        instagram: "@marie.artisanbeauty",
-        linkedin: "marie-dubois-mua",
-        email: "marie@artisanbeauty.fr"
-      }
-    },
-    {
-      id: 2,
-      name: "Camille Leroux",
-      role: "Assistante & Formatrice",
-      speciality: "Maquillage Naturel & Conseil",
-      image: assistantImage,
-      experience: "5 ans",
-      description: "Spécialiste du maquillage naturel et du conseil beauté, Camille accompagne nos clientes dans leur quête de l'élégance au quotidien.",
-      certifications: [
-        "Formation Avancée MUA",
-        "Spécialisation Conseil Beauté",
-        "Certification Produits Bio"
-      ],
-      achievements: [
-        "Experte maquillage naturel",
-        "200+ consultations beauté",
-        "Spécialiste produits bio"
-      ],
-      social: {
-        instagram: "@camille.beautycoach",
-        linkedin: "camille-leroux-beauty",
-        email: "camille@artisanbeauty.fr"
-      }
-    }
-  ];
+// Interface pour les props
+interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  speciality: string;
+  image: string;
+  experience: string;
+  description: string;
+  certifications: string[];
+  achievements: string[];
+  social: {
+    instagram?: string;
+    linkedin?: string;
+    email?: string;
+  };
+}
+
+interface TeamProps {
+  teamMembers: TeamMember[];
+}
+
+const Team = ({ teamMembers }: TeamProps) => {
 
   return (
     <section id="equipe" className="py-20 bg-gradient-hero">
@@ -87,7 +57,7 @@ const Team = () => {
                   {/* Image */}
                   <div className="relative h-80 overflow-hidden">
                     <img
-                      src={member.image.src}
+                      src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />

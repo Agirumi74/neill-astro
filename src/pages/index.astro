@@ -38,7 +38,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   </AnimatedSection>
 
   <AnimatedSection animation="slide-left" delay={100} client:visible>
-    <Gallery />
+    <Gallery client:load />
   </AnimatedSection>
 
   <AnimatedSection animation="scale-in" client:visible>
@@ -54,7 +54,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   </AnimatedSection>
 
   <AnimatedSection animation="slide-up" delay={200} client:visible>
-    <FAQ />
+    <FAQ client:load />
   </AnimatedSection>
 
   <AnimatedSection animation="scale-in" delay={100} client:visible>

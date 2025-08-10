@@ -42,7 +42,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-hero">
+    <section className="py-20 bg-gradient-to-br from-background to-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-primary font-medium tracking-wide uppercase text-sm mb-4">
@@ -50,7 +50,7 @@ const Testimonials = () => {
           </p>
           <h2 className="font-elegant text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Ce Que Disent
-            <span className="block bg-gradient-luxury bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
               Mes Clientes
             </span>
           </h2>
@@ -64,13 +64,12 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={testimonial.id} 
-              className="bg-gradient-card border-border/50 hover-glow animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-gradient-to-br from-card to-muted border-border/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
             >
               <CardContent className="p-6 space-y-4">
                 {/* Quote Icon */}
                 <div className="flex justify-center">
-                  <div className="p-3 bg-gradient-luxury rounded-full text-white">
+                  <div className="p-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-white">
                     <Quote className="w-6 h-6" />
                   </div>
                 </div>
@@ -96,7 +95,7 @@ const Testimonials = () => {
 
                 {/* Client Info */}
                 <div className="text-center pt-4 border-t border-border/30">
-                  <div className="w-12 h-12 bg-gradient-luxury rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full mx-auto mb-2 flex items-center justify-center">
                     <span className="text-white font-elegant font-semibold text-sm">
                       {testimonial.name.split(' ').map(n => n[0]).join('')}
                     </span>
@@ -115,7 +114,7 @@ const Testimonials = () => {
 
         {/* Overall Rating */}
         <div className="mt-16 text-center">
-          <Card className="inline-block bg-gradient-card border-border/50 luxury-shadow">
+          <Card className="inline-block bg-gradient-to-br from-card to-muted border-border/50 luxury-shadow">
             <CardContent className="p-6">
               <div className="flex items-center justify-center space-x-4">
                 <div className="text-center">

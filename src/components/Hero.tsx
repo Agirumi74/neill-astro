@@ -4,22 +4,22 @@ import heroImage from "@assets/hero-beauty.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-screen flex items-center pt-20 pb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4">
-              <p className="text-primary font-medium tracking-wide uppercase text-sm">
+              <p className="text-primary font-medium tracking-wide uppercase text-xs sm:text-sm">
                 L'artisane de votre beauté
               </p>
-              <h1 className="font-elegant text-5xl lg:text-7xl font-bold text-foreground leading-tight">
+              <h1 className="font-elegant text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-tight">
                 Une Approche
                 <span className="block bg-gradient-luxury bg-clip-text text-transparent">
                   Unique
                 </span>
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg">
                 Passionnée par l'art du maquillage et la transmission, je vous accompagne avec 
                 bienveillance pour révéler votre beauté naturelle et développer votre confiance.
               </p>
@@ -36,10 +36,10 @@ const Hero = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-luxury text-primary-foreground hover-glow luxury-shadow"
+                className="bg-gradient-luxury text-primary-foreground hover-glow luxury-shadow text-sm sm:text-base"
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Découvrir mes services
@@ -47,7 +47,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm sm:text-base"
                 onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Voir la galerie
@@ -68,16 +68,16 @@ const Hero = () => {
               <img
                 src={heroImage.src}
                 alt="Artisan Beauty - Maquillage professionnel"
-                className="w-full h-[600px] object-cover"
+                className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
             
             {/* Floating Badge */}
-            <div className="absolute -top-6 -right-6 bg-white/90 backdrop-blur-md rounded-full p-6 card-shadow animate-glow">
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white/90 backdrop-blur-md rounded-full p-4 sm:p-6 card-shadow animate-glow">
               <div className="text-center">
-                <p className="font-elegant text-2xl font-bold text-primary">15+</p>
-                <p className="text-sm text-muted-foreground">Années d'expérience</p>
+                <p className="font-elegant text-xl sm:text-2xl font-bold text-primary">15+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Années d'expérience</p>
               </div>
             </div>
           </div>

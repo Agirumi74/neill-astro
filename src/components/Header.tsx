@@ -17,7 +17,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-[60] bg-background/90 backdrop-blur-md border-b border-border pointer-events-auto">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -50,7 +50,7 @@ const Header = () => {
             <Button 
               variant="default" 
               className="bg-gradient-luxury text-white hover-glow"
-              onClick={() => window.location.href = "/reservation"}
+              onClick={() => setIsBookingOpen(true)}
             >
               Réserver
             </Button>
@@ -82,7 +82,10 @@ const Header = () => {
                <Button 
                  variant="default" 
                  className="bg-gradient-luxury text-white mt-4"
-                  onClick={() => window.location.href = "/reservation"}
+                 onClick={() => {
+                   setIsBookingOpen(true);
+                   setIsMenuOpen(false);
+                 }}
                 >
                  Réserver
                </Button>

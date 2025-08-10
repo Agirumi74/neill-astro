@@ -26,16 +26,7 @@ export default function ThemeToggle() {
         try { localStorage.setItem("theme", next); } catch (e) {}
         setTheme(next);
       }}
-      style={{
-        position: "fixed",
-        top: 16,
-        right: 80, // Move further right to avoid mobile menu button
-        zIndex: 9999,
-        padding: 8,
-        borderRadius: 8,
-        border: "1px solid rgba(0,0,0,0.08)",
-        background: "rgba(255,255,255,0.9)",
-      }}
+      className="fixed top-4 right-20 z-[9999] p-2 rounded-lg border border-border bg-background/90 backdrop-blur-sm text-foreground hover:bg-muted transition-colors duration-200"
     >
       {theme === "dark" ? "☾" : "☀️"}
     </button>
